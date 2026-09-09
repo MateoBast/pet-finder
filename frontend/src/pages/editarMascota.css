@@ -1,0 +1,58 @@
+.body-container-editar {
+  display: flex;
+  align-items: center; /* mejor que center para scroll */
+  flex-direction: column;
+  height: 100vh; /* altura completa */
+  overflow-y: auto;
+}
+.editar-mascota-container {
+  padding: 20px;
+  background-color: #1a202c;
+  color: white;
+  border-radius: 8px;
+  max-width: 600px;
+  margin-bottom: 100px;
+  margin-top: 30px;
+}
+
+
+.form-editar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  border-color: #3182ce; /* Color al enfocar */
+}
+
+.btn-modificar-foto, .btn-guardar, .btn-reportar-encontrado, .btn-eliminar {
+  background-color: #3182ce; /* Color de fondo */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-modificar-foto:hover, .btn-guardar:hover, .btn-reportar-encontrado:hover, .btn-eliminar:hover {
+  background-color: #2c5282; /* Color al pasar el mouse */
+}
+
+.mascota-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}

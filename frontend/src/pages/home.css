@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+}
+
+.bodyHome{
+    background: linear-gradient(180deg, #f0f7f7 0%, #d9edea 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contenedorHome{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contenedorboteneshome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.tituloHome{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 45px;
+    color: #EB6372;
+}
+.textoHome{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+.botonUnoHome{
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+background-color: #548EFC; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
+.botonDosHome{
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+background-color: #00A884; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
