@@ -11,12 +11,12 @@
     "uuid": "^14.0.1"
   },
 "scripts": {
-  "preinstall": "pnpm approve-builds",
   "start": "react-scripts start",
   "build": "react-scripts build",
   "test": "react-scripts test",
   "eject": "react-scripts eject"
-},
+}
+
   "browserslist": {
     "production": [
       ">0.2%",
