@@ -4,20 +4,13 @@
   "description": "",
   "type": "module",
   "main": "index.js",
-"scripts": {
-  "start": "node index.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.9.0",
-      "onFail": "download"
-    }
-  },
   "dependencies": {
     "algoliasearch": "^4.10.5",
     "bcrypt": "^6.0.0",
