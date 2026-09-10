@@ -41,12 +41,10 @@ app.delete('/api/users/:id', userController.deleteUser);
 
 // Rutas de autenticación
 app.post('/api/login', authController.loginUser);
-app.post('/api/cambiar-contrasena', authMiddleware, authController.changePassword); // Nueva ruta para cambiar contraseña
-app.post('/api/request-password-reset', authController.requestPasswordReset); // Ruta para solicitar reseteo de contraseña
-app.post('/api/reset-password', authController.resetPassword); // Ruta para resetear contraseña
-
-// Ruta para manejar el formulario de reset de contraseña
-app.get('/reset-password', authController.showResetPasswordForm); // Usando la función del controlador
+app.post('/api/cambiar-contrasena', authMiddleware, authController.changePassword);
+app.post('/api/request-password-reset', authController.requestPasswordReset);
+app.post('/api/reset-password', authController.resetPassword);
+app.get('/reset-password', authController.showResetPasswordForm);
 
 // Rutas de mascotas
 app.post('/api/pets', authMiddleware, upload.single('image'), petController.createPet);
@@ -61,6 +59,14 @@ app.get('/api/reports', reportController.getAllReports);
 app.get('/api/reports/:id', reportController.getReportById);
 app.put('/api/reports/:id', reportController.updateReport);
 app.delete('/api/reports/:id', reportController.deleteReport);
+
+// Servir archivos estáticos del frontend
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+// Ruta para manejar cualquier otra solicitud y servir el index.html del frontend
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
