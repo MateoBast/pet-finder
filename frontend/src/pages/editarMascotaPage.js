@@ -118,7 +118,7 @@ const reportarComoEncontrado = async () => {
   const confirmar = window.confirm('¿Estás seguro que querés reportar esta mascota como encontrada?');
   if (!confirmar) return;
 
-  const updateRes = await fetch(`https://pet-finder-fvju.onrender.com//api/pets/${id}`, {
+  const updateRes = await fetch(`https://pet-finder-fvju.onrender.com/api/pets/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ status: 'found' }),
