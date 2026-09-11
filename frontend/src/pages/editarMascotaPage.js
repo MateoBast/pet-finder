@@ -45,7 +45,7 @@ const EditarMascotaPage = () => {
 
   useEffect(() => {
     const fetchMascota = async () => {
-      const res = await fetch(`http://localhost:3000/api/pets/${id}`);
+      const res = await fetch(`https://pet-finder-fvju.onrender.com/api/pets/${id}`);
       const data = await res.json();
 
       const location = JSON.parse(data.location);
@@ -82,7 +82,7 @@ const handleSubmit = async (e) => {
     const formData = new FormData();
     formData.append('file', mascota.file);
 
-    const uploadRes = await fetch('http://localhost:3000/api/upload', {
+    const uploadRes = await fetch('https://pet-finder-fvju.onrender.com/api/upload', {
       method: 'POST',
       body: formData,
     });
@@ -96,7 +96,7 @@ const handleSubmit = async (e) => {
     }
   }
 
-  const updateRes = await fetch(`http://localhost:3000/api/pets/${id}`, {
+  const updateRes = await fetch(`https://pet-finder-fvju.onrender.com/api/pets/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ ...mascota, imageurl: uploadedImageUrl, location: { lat, lng } }),
@@ -118,7 +118,7 @@ const reportarComoEncontrado = async () => {
   const confirmar = window.confirm('¿Estás seguro que querés reportar esta mascota como encontrada?');
   if (!confirmar) return;
 
-  const updateRes = await fetch(`http://localhost:3000/api/pets/${id}`, {
+  const updateRes = await fetch(`https://pet-finder-fvju.onrender.com//api/pets/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ status: 'found' }),
@@ -135,7 +135,7 @@ const eliminarMascota = async () => {
   const confirmar = window.confirm('¿Estás seguro que querés eliminar esta mascota?');
   if (!confirmar) return;
 
-  const deleteRes = await fetch(`http://localhost:3000/api/pets/${id}`, {
+  const deleteRes = await fetch(`https://pet-finder-fvju.onrender.com/api/pets/${id}`, {
     method: 'DELETE',
   });
 
