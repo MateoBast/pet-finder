@@ -10,30 +10,30 @@ const client = new MailtrapClient({
 
 export const createReport = async (req, res) => {
   const { petId, reporterName, reporterPhone, location } = req.body;
+  const reporterId = req.user.id; // Suponiendo que el id del usuario está en req.user
 
   if (!petId || !reporterName || !reporterPhone || !location) {
     return res.status(400).json({ error: 'Todos los campos son obligatorios.' });
   }
 
   try {
-    const newReport = await ReportModel.createReport(petId, reporterName, reporterPhone, location);
+    const newReport = await ReportModel.createReport(petId, reporterName, reporterPhone, location, reporterId);
     const reporterEmail = await ReportModel.getReporterEmailByPetId(petId);
 
     if (reporterEmail) {
-await client.send({
-  from: {
-    email: "hello@demomailtrap.co", // Cambia esto si es necesario
-    name: "Mailtrap Test",
-  },
-  to: [
-    {
-      email: "mateobastidas146@gmail.com", // Aca tendria que ser (reporterEmail)
-    },
-  ],
-  subject: `Nueva información sobre tu mascota ${petId}`,
-  text: `Hola! Alguien reportó haber visto a tu mascota.\nNombre del reportero: ${reporterName}\nTeléfono: ${reporterPhone}\nUbicación: ${location}`,
-});
-
+      await client.send({
+        from: {
+          email: "hello@demomailtrap.co",
+          name: "Mailtrap Test",
+        },
+        to: [
+          {
+            email: reporterEmail, // Cambié esto para usar el email del reportero
+          },
+        ],
+        subject: `Nueva información sobre tu mascota ${petId}`,
+        text: `Hola! Alguien reportó haber visto a tu mascota.\nNombre del reportero: ${reporterName}\nTeléfono: ${reporterPhone}\nUbicación: ${location}`,
+      });
     }
 
     res.status(201).json(newReport);

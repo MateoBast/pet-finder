@@ -1,15 +1,16 @@
 import pool from '../servicesback/pet-finder-db.js';
 
 class ReportModel {
-  static async createReport(petId, reporterName, reporterPhone, location) {
-    const query = `
-      INSERT INTO reports (petId, reporterName, reporterPhone, location, timestamp)
-      VALUES ($1, $2, $3, $4, NOW())
-      RETURNING *;
-    `;
-    const result = await pool.query(query, [petId, reporterName, reporterPhone, location]);
-    return result.rows[0];
-  }
+static async createReport(petId, reporterName, reporterPhone, location, reporterId) {
+  const query = `
+    INSERT INTO reports (petId, reporterName, reporterPhone, location, reporterId, timestamp)
+    VALUES ($1, $2, $3, $4, $5, NOW())
+    RETURNING *;
+  `;
+  const result = await pool.query(query, [petId, reporterName, reporterPhone, location, reporterId]);
+  return result.rows[0];
+}
+
 
   static async getAllReports() {
     const result = await pool.query('SELECT * FROM reports');

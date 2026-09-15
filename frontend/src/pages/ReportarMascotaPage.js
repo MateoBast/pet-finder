@@ -57,7 +57,7 @@ const ReportarMascotaPage = () => {
       const token = getToken();
       console.log('Token desde hook:', token);
 
-      const response = await fetch('https://pet-finder-fvju.onrender.com/api/pets', {
+      const response = await fetch('http://localhost:3000/api/pets', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

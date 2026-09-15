@@ -13,7 +13,7 @@ export const createPet = async (req, res) => {
     const reporterId = decoded.id;
 
     const { name, descripcion, status, location: locationStr } = req.body;
-    const imageUrl = req.file ? `https://pet-finder-fvju.onrender.com/uploads/${req.file.filename}` : null;
+    const imageUrl = req.file ? `http://localhost:3000/uploads/${req.file.filename}` : null;
 
     if (!name || !descripcion || !status || !locationStr || !imageUrl) {
       return res.status(400).json({ error: 'Todos los campos son obligatorios.' });

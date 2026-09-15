@@ -104,7 +104,7 @@ export const requestPasswordReset = async (req, res) => {
       text: `
         Hola ${user.name},
         Hiciste una solicitud para resetear tu contraseña. Hacé click en el siguiente enlace para continuar:
-        https://pet-finder-fvju.onrender.com/reset-password?token=${token}
+        http://localhost:3000/reset-password?token=${token}
         Este link es válido por 1 hora.
       `,
     });
@@ -131,7 +131,7 @@ export const resetPassword = async (req, res) => {
     await UserModel.clearResetToken(user.id);
 
     // Redirigir a localhost después de actualizar la contraseña
-    res.redirect('https://pet-finder-fvju.onrender.com/');
+    res.redirect('http://localhost:3000/');
   } catch (error) {
     console.error('Error en resetPassword:', error);
     res.status(500).send('Error al actualizar la contraseña.');
@@ -171,16 +171,7 @@ res.send(`
       border-radius: 4px;
       font-size: 16px;
     " />
-    <button type="submit" style="
-      width: 100%; 
-      padding: 10px; 
-      background-color: #007bff; 
-      color: white; 
-      border: none; 
-      border-radius: 4px; 
-      font-size: 16px; 
-      cursor: pointer;
-    ">Resetear Contraseña</button>
+
   </form>
 `)
 };
