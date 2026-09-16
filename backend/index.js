@@ -64,7 +64,7 @@ app.delete('/api/reports/:id', reportController.deleteReport);
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 // Ruta para manejar cualquier otra solicitud y servir el index.html del frontend
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
 });
 
